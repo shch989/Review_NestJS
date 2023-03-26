@@ -20,8 +20,7 @@ export class AdminController {
   }
 
   @Post('add-product')
-  @Render('add-product')
-  postAddProduct(@Body() addProductDTO: AddProductDTO, @Res() res: Response) {
+  postAddProduct(@Body() addProductDTO: AddProductDTO, @Res() res) {
     this.adminService.create(addProductDTO)
     res.redirect('/');
   }
