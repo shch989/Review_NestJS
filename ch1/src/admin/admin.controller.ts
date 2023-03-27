@@ -1,11 +1,11 @@
 import { Body, Controller, Get, Post, Render, Res } from '@nestjs/common';
 import { Response } from 'express';
-import { AdminService } from './admin.service';
-import { AddProductDTO } from './dto/add-product.dto';
+import { AdminRepository } from './admin.repository';
+import { ProductDTO } from './dto/product.dto';
 
 @Controller('admin')
 export class AdminController {
-  constructor(private readonly adminService: AdminService) {}
+  constructor(private readonly adminRepository: AdminRepository) {}
 
   @Get('add-product')
   @Render('add-product')
@@ -20,8 +20,8 @@ export class AdminController {
   }
 
   @Post('add-product')
-  postAddProduct(@Body() addProductDTO: AddProductDTO, @Res() res) {
-    this.adminService.create(addProductDTO)
+  postAddProduct(@Body() addProductDTO: ProductDTO, @Res() res: Response) {
+    this.adminRepository.create(addProductDTO);
     res.redirect('/');
   }
 }

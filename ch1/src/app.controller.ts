@@ -1,14 +1,14 @@
 import { Controller, Get, Render } from '@nestjs/common';
-import { AdminService } from './admin/admin.service';
+import { AdminRepository } from './admin/admin.repository';
 
 @Controller()
 export class AppController {
-  constructor(private readonly adminService: AdminService) {}
+  constructor(private readonly adminRepository: AdminRepository) {}
 
   @Get('/')
   @Render('shop')
   getProducts() {
-    const products = this.adminService.findAll()
+    const products = this.adminRepository.fetchAll();
     return {
       prods: products,
       pageTitle: 'Shop',
