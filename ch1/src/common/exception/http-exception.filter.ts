@@ -18,7 +18,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       return res.render('404', {
         pageTitle: 'Not Found',
         message: 'Page Not Found',
-        path: '/',
+        path: '/404',
       });
     }
   }
