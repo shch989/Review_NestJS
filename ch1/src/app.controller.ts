@@ -1,21 +1,14 @@
-import { Controller, Get, Render } from '@nestjs/common';
-import { AdminRepository } from './admin/admin.repository';
+import { Controller, Module, Get } from '@nestjs/common'
 
-@Controller()
+@Controller('/app')
 export class AppController {
-  constructor(private readonly adminRepository: AdminRepository) {}
+  @Get('/asdf')
+  getRootRoute() {
+    return 'Hello NestJS!'
+  }
 
-  @Get('/')
-  @Render('shop')
-  getProducts() {
-    const products = this.adminRepository.fetchAll();
-    return {
-      prods: products,
-      pageTitle: 'Shop',
-      path: '/',
-      hasProducts: products.length > 0,
-      activeShop: true,
-      productCSS: true,
-    };
+  @Get('/bye')
+  getByeThere() {
+    return 'Bye NestJS'
   }
 }
