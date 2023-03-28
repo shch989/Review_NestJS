@@ -1,4 +1,4 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Param, Render, Res } from '@nestjs/common';
 import { AdminRepository } from './admin/admin.repository';
 
 @Controller()
@@ -12,7 +12,7 @@ export class AppController {
     return {
       prods: products,
       pageTitle: 'Shop',
-      path: '/'
+      path: '/',
     };
   }
 
@@ -23,6 +23,17 @@ export class AppController {
     return {
       prods: products,
       pageTitle: 'All Products',
+      path: '/products',
+    };
+  }
+
+  @Get('/products/:productId')
+  @Render('shop/product-detail')
+  getProduct(@Param('productId') prodId: string) {
+    const product = this.adminRepository.findById(prodId);
+    return {
+      product: product,
+      pageTitle: product.title,
       path: '/products'
     };
   }
@@ -32,7 +43,7 @@ export class AppController {
   getCart() {
     return {
       path: '/cart',
-      pageTitle: 'Your Cart'
+      pageTitle: 'Your Cart',
     };
   }
 
@@ -41,7 +52,7 @@ export class AppController {
   getOrders() {
     return {
       path: '/orders',
-      pageTitle: 'Your Orders'
+      pageTitle: 'Your Orders',
     };
   }
   @Get('/checkout')
@@ -49,7 +60,7 @@ export class AppController {
   getCheckout() {
     return {
       path: '/checkout',
-      pageTitle: 'Checkout'
+      pageTitle: 'Checkout',
     };
   }
 }

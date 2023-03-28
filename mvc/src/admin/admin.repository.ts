@@ -26,6 +26,7 @@ export class AdminRepository {
         return;
       }
       const products = JSON.parse(fileContent.toString());
+      product.id = Math.random().toString();
       products.push(product);
       fs.writeFile(p, JSON.stringify(products), (err) => {
         if (err) {
@@ -44,5 +45,11 @@ export class AdminRepository {
     const fileContent = fs.readFileSync(p, 'utf-8');
     const products: ProductDTO[] = JSON.parse(fileContent);
     return products;
+  }
+
+  findById(id: string) {
+    const products = this.fetchAll();
+    const foundItem = products.find((p) => p.id === id);
+    return foundItem;
   }
 }
