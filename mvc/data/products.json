@@ -5,5 +5,12 @@
     "price": "32.99",
     "description": "it 서적 대량 판매합니다",
     "id": "5"
+  },
+  {
+    "title": "Coke",
+    "imageUrl": "https://cdn11.bigcommerce.com/s-x3kq5bcr0e/images/stencil/1280x1280/products/5464/5117/coca-cola-375ml-can__83031.1614947521.png?c=1",
+    "price": "1.99",
+    "description": "코카콜라 4캔 판매합니다",
+    "id": "0.299998808288674"
   }
 ]
