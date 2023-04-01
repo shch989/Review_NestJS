@@ -12,7 +12,27 @@ export class AppController {
     return {
       prods: products,
       pageTitle: 'Shop',
-      path: '/',
+      path: '/'
+    };
+  }
+
+  @Get('/products')
+  @Render('shop/product-list')
+  getProducts() {
+    const products = this.adminRepository.fetchAll();
+    return {
+      prods: products,
+      pageTitle: 'All Products',
+      path: '/products'
+    };
+  }
+
+  @Get('/cart')
+  @Render('shop/cart')
+  getCart() {
+    return {
+      path: '/cart',
+      pageTitle: 'Your Cart'
     };
   }
 
@@ -21,7 +41,7 @@ export class AppController {
   getOrders() {
     return {
       path: '/orders',
-      pageTitle: 'Your Orders',
+      pageTitle: 'Your Orders'
     };
   }
   @Get('/checkout')
@@ -29,7 +49,7 @@ export class AppController {
   getCheckout() {
     return {
       path: '/checkout',
-      pageTitle: 'Checkout',
+      pageTitle: 'Checkout'
     };
   }
 }

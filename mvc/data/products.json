@@ -1,16 +1,1 @@
-[
-  {
-    "title": "Books",
-    "imageUrl": "https://static.scientificamerican.com/sciam/cache/file/1DDFE633-2B85-468D-B28D05ADAE7D1AD8_source.jpg?w=590&h=800&D80F3D79-4382-49FA-BE4B4D0C62A5C3ED",
-    "price": "32.99",
-    "description": "it 서적 대량 판매합니다",
-    "id": "5"
-  },
-  {
-    "title": "Coke",
-    "imageUrl": "https://cdn11.bigcommerce.com/s-x3kq5bcr0e/images/stencil/1280x1280/products/5464/5117/coca-cola-375ml-can__83031.1614947521.png?c=1",
-    "price": "1.99",
-    "description": "코카콜라 4캔 판매합니다",
-    "id": "0.299998808288674"
-  }
-]
+[{"title":"Coke","imageUrl":"https://img.danawa.com/prod_img/500000/492/722/img/1722492_1.jpg?shrink=330:*&_v=20200819161846","price":"1.99","description":"코카콜라 캔 1개 판매합니다."}]

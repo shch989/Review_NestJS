@@ -5,7 +5,6 @@ import * as fs from 'fs';
 
 @Injectable()
 export class AdminRepository {
-  // private readonly products: ProductDTO[] = [];
   private readonly productsFilePath = path.join(
     __dirname,
     '..',
@@ -13,10 +12,6 @@ export class AdminRepository {
     'data',
     'products.json',
   );
-
-  // create(product: AddProductDTO) {
-  //   this.products.push(product)
-  // }
 
   create(product: ProductDTO) {
     const p = path.join(this.productsFilePath);
@@ -26,7 +21,6 @@ export class AdminRepository {
         return;
       }
       const products = JSON.parse(fileContent.toString());
-      product.id = Math.random().toString();
       products.push(product);
       fs.writeFile(p, JSON.stringify(products), (err) => {
         if (err) {
@@ -36,20 +30,10 @@ export class AdminRepository {
     });
   }
 
-  // fetchAll(): ProductDTO[] {
-  //   return this.products;
-  // }
-
   fetchAll(): ProductDTO[] {
     const p = path.join(this.productsFilePath);
     const fileContent = fs.readFileSync(p, 'utf-8');
     const products: ProductDTO[] = JSON.parse(fileContent);
     return products;
-  }
-
-  findById(id: string) {
-    const products = this.fetchAll();
-    const foundItem = products.find((p) => p.id === id);
-    return foundItem;
   }
 }
