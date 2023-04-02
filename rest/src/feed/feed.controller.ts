@@ -12,7 +12,7 @@ export class FeedController {
   }
 
   @Post('post')
-  createPost(@Body() post: FeedPostDto) {
-    return this.feedService.createPost(post)
+  createPost(@Body() feedPostDto: FeedPostDto) {
+    return this.feedService.createPost(feedPostDto)
   }
 }
