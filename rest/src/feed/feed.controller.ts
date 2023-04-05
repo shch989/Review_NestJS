@@ -27,7 +27,7 @@ export class FeedController {
   }
 
   @Post('post')
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(FileInterceptor('imageUrl'))
   createPost(
     @Body() feedPostDto: FeedPostDto,
     @UploadedFile() file: Express.Multer.File,
